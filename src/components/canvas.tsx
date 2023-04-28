@@ -1,18 +1,45 @@
 import p5 from "p5";
+import { onCleanup, onMount, Setter } from "solid-js";
 
-export default function P5Canvas() {
-  const cav = null;
+interface P5CanvasProps {
+  clean: boolean;
+  setClean: Setter<boolean>;
+}
+
+export default function P5Canvas(props: P5CanvasProps) {
+  let cav = null;
   // p5canvas create
   const sketch = (p: p5) => {
+    const bgg = 240;
     p.setup = () => {
-      p.createCanvas(400, 400);
+      p.createCanvas(1000, 1000);
+      p.background(bgg);
+      p.frameRate(120);
     };
     p.draw = () => {
-      p.background(0);
-      p.ellipse(p.mouseX, 200, 100, 100);
+      if (p.mouseIsPressed) {
+        p.stroke(0);
+        p.strokeWeight(8);
+        p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+      }
+      if (props.clean) {
+        p.background(bgg);
+        props.setClean(false);
+      }
     };
   };
-  new p5(sketch, cav);
 
-  return <div class="canvas"></div>;
+  let p5js: p5;
+
+  onMount(() => {
+    p5js = new p5(sketch, cav);
+  });
+
+  onCleanup(() => {
+    p5js.remove();
+  });
+
+  return (
+    <div id="p5canvas" class="flex justify-center items-center" ref={cav}></div>
+  );
 }
