@@ -9,7 +9,7 @@
   "width": 512,
   "height": 512,
   "negative_prompt": "(worst quality:2),(low quality:2), (normal quality.2), lowres, normal quality, skin spots, acnes, skin blemishes, age spot, glans, (watermark:2)",
-  "sampler_index": "DPM++ 2S a Karras",
+  "sampler_index": "DDIM",
   "controlnet_units": [
     {
       "mask": "",

@@ -12,8 +12,8 @@ export default function P5Canvas(props: P5CanvasProps) {
   const sketch = (p: p5) => {
     const bgg = 240;
     p.setup = () => {
-      p.createCanvas(1000, 1000);
-      p.background(bgg);
+      p.createCanvas(980, 980);
+      // p.background(bgg);
       p.frameRate(120);
     };
     p.draw = () => {
@@ -23,7 +23,8 @@ export default function P5Canvas(props: P5CanvasProps) {
         p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
       }
       if (props.clean) {
-        p.background(bgg);
+        p.clear(0, 0, 0, 0);
+        // p.background(bgg);
         props.setClean(false);
       }
     };

@@ -1,0 +1,39 @@
+body,
+html {
+  -moz-user-select: none; /*火狐*/ /*选中文字时避免出现蓝色背景*/
+  -webkit-user-select: none; /*webkit浏览器*/ /*选中文字时避免出现蓝色背景*/
+  -ms-user-select: none; /*IE10*/ /*选中文字时避免出现蓝色背景*/
+  user-select: none; /*选中文字时避免出现蓝色背景*/
+}
+.main {
+  background-color: #3d3730;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main #p5canvas {
+  /* background-color: #000canvasBG.png; */
+  background-image: url(/canvasBG.png);
+  background-size: cover;
+}
+.main .canvas .reset {
+  position: absolute;
+  top: 950px;
+  right: 80px;
+  cursor: pointer;
+  /* pointer-events: none; */
+}
+
+.main .controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.pagenation {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,15 @@
+.start {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.start .clickArea {
+  position: absolute;
+  top: 1373px;
+  left: 317px;
+  width: 567px;
+  height: 215px;
+  background-color: red;
+  opacity: 0;
+}
